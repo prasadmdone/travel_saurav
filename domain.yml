@@ -1,0 +1,107 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - book_tick
+  - Name
+  - Location
+  - Phone
+  - Dates
+entities:
+  - name
+slots:
+ name:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: name
+
+responses:
+  utter_greet:
+  - text: "Welcome Im Travelbot in your service."
+
+  utter_excited:
+  - text: "Excited to go on vacation?"
+
+  utter_helpbook:
+  - text: "Would you like me to help you book tickets?"
+    buttons:
+      - title: "Yes"
+        payload: "/affirm"
+      - title: "No"
+        payload: "/deny"
+
+  utter_sure:
+  - text: "Sure"
+
+  utter_boarding:
+  - text: "Where will you be boarding from?"
+
+  utter_destination: 
+  - text: "What is your destination?"
+
+  utter_cool:
+  - text: "Cool"
+
+  utter_bo_date:
+  - text: "When are you planning to travel?"
+
+  utter_return:
+  - text: "Would you like me to book a return ticket as well?"
+    buttons:
+      - title: "Yes"
+        payload: "/affirm"
+      - title: "No"
+        payload: "/deny"
+
+  utter_re_date:
+  - text: "Ok. Which date do you wish to return?"
+
+  utter_det:
+  - text: "Please share some details so that I can show you lowest price flight options for your trip."
+
+  utter_phone:
+  - text: "What's your mobile number?"
+
+  utter_name:
+  - text: "What's your name?"
+
+  utter_thanks_name:
+  - text: "Thanks {name}"
+
+  utter_confirmation: 
+  - text: "You will soon receive a callback from my team and they will share details about the best flight options we have. "
+  
+  utter_hurry:
+  - text: "If you are in hurry, you can give us a call at +91-9000090000"
+
+  utter_again:
+  - text: "Restart"
+    buttons:
+      - title: "Yes"
+        payload: "/affirm"
+      - title: "No"
+        payload: "/deny"
+
+  utter_thanks_use:
+  - text: "Thanks for using us."
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot."
+
+actions:
+  - action_calendar
+  - action_ports
+  - action_hello_world
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
